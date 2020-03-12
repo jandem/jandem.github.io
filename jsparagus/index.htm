@@ -3,15 +3,18 @@
   async function run() {
     await init();
     window.parse = parse;
-    const result = parse("44 + 55");
-    console.log(result);
+    window.process();
   }
   run();
 </script>
 <script>
   alert = function(s) { document.getElementById("output").innerText = s; };
+  process = function(s) {
+    alert('');
+    parse(document.getElementById("input").value);
+  };
 </script>
-<textarea id="input" onkeyup="alert(''); parse(this.value)" style="width: 500px; height: 100px;">
+<textarea id="input" onkeyup="process()" style="width: 500px; height: 100px;">
 var x = 1 + 2;
 var y = function() { return /abc/g; }
 </textarea>
